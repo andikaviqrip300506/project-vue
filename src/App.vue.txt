@@ -1,0 +1,55 @@
+<script setup>
+import { ref } from 'vue'
+
+const msg = "<h1> Hai </h1>" // Harus memakai rawHTML
+const pesan = "Halo Dunia"
+const hai = "hai" // Bisa menggunakan {{ hai }}
+const link = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fepaper.mediaindonesia.com%2Fdetail%2Fmonyet-juga-menyapa-seperti-manusia&psig=AOvVaw10nWkOSJ_HI6_E-BxvRJgt&ust=1689922775160000&source=images&cd=vfe&opi=89978449&ved=0CA4QjRxqFwoTCODplo_bnIADFQAAAAAdAAAAABAI"
+const number = prompt("")
+const IsButtonDisabled = true;
+const objek = {
+  id : 'container',
+  class : 'wrapper'
+}
+const dataSiswa = [
+  {nama : 'andika', kelas: 'RPL 2', alamat: 'bandung', kelamin: 'laki-laki'},
+  {nama : 'septian', kelas: 'RPL 1', alamat: 'jakarta', kelamin: 'laki-laki'},
+  {nama : 'puput', kelas: 'RPL 2', alamat: 'jambi', kelamin: 'perempuan'},
+  {nama : 'usep', kelas: 'RPL 2', alamat: 'wonogiri', kelamin: 'laki-laki'},
+  {nama : 'tiya', kelas: 'RPL 3', alamat: 'surabaya', kelamin: 'perempuan'},
+]
+</script>
+
+<template>
+  <div :="objek">
+   <h1 v-html="msg"></h1> 
+   <h1> {{ hai }} </h1>
+   <a :href="link"> Klik </a>
+   <button :disabled="IsButtonDisabled"><a :href="link">Button</a></button>
+   <p v-if="seen">Halo saya andika</p>
+   <p> {{ parseInt(number) }} </p>
+   <p> {{ number ? 'TRUE : 1' : 'FALSE : 0' }}</p>
+   <p> {{ pesan.split('').reverse('').join("") }}</p>
+
+
+   <br>
+   <table border="1">
+    <tr> 
+      <td> &nbsp; nama &nbsp; </td> 
+      <td> &nbsp; kelas &nbsp; </td>
+      <td> &nbsp; alamat &nbsp; </td>
+      <td> &nbsp; kelamin &nbsp; </td>
+    </tr>
+    <tr v-for="data in dataSiswa">
+      <td> {{ data.nama }} </td>
+      <td> {{ data.kelas }}</td>
+      <td> {{ data.alamat }}</td>
+      <td> {{ data.kelamin }}</td>
+    </tr>
+   
+   </table>
+
+
+   
+  </div>
+</template>
